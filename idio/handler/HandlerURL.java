@@ -75,4 +75,26 @@ public class HandlerURL extends Handler<String> {
 	public ArrayList<String> getBoxes(){
 		return this.boxes;
 	}
+
+	public Parser getParser() {
+		return parser;
+	}
+
+	public void setParser(Parser parser) {
+		this.parser = parser;
+	}
+
+	public String getCharset() {
+		return charset;
+	}
+
+	public void setCharset(String charset) {
+		this.charset = charset;
+	}
+
+	public void setBoxes(ArrayList<String> boxes) {
+		this.boxes = boxes;
+	}
+	
+	
 }
