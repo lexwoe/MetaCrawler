@@ -48,7 +48,7 @@ public class App <O>{
 		this.crawler = c;
 	}
 	
-	public ArrayList<O> process() throws Exception{
+	public ArrayList<O> app() throws Exception{
 		this.parser.loadPattern(this.pat4parser);
 		this.model.loadPattern(this.pat4model);
 		this.handler.setParser(this.parser);
