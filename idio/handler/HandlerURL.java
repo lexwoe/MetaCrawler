@@ -26,8 +26,15 @@ public class HandlerURL extends Handler<String> {
 	private ArrayList<String> boxes;
 	private Parser parser ;
 	
+	private String charset = "UTF-8";
+	
 	public HandlerURL(Parser parser){
 		this.parser = parser;
+	}
+	
+	public HandlerURL(Parser parser, String charset){
+		this.parser = parser;
+		this.charset = charset;
 	}
 	
 	/**
@@ -40,7 +47,7 @@ public class HandlerURL extends Handler<String> {
 		this.boxes = new ArrayList<String>();
 
 		InputStream is = url.openStream(); // throws an IOException
-		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		BufferedReader br = new BufferedReader(new InputStreamReader(is,this.charset));
 		String line = null;
 		while ((line = br.readLine()) != null) {
 			ArrayList<String[]> values = this.parser.parse(line);
