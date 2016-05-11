@@ -35,11 +35,21 @@ public class HandlerInfor<O> extends Handler<O> {
 
 	// locate target
 	private Model model;
+	
+	// charset
+	private String charset = "UTF-8";
 
 	public HandlerInfor(String boxname, Parser parser, Model model) {
 		this.boxname = boxname;
 		this.parser = parser;
 		this.model = model;
+	}
+	
+	public HandlerInfor(String boxname, Parser parser, Model model, String charset){
+		this.boxname = boxname;
+		this.parser = parser;
+		this.model = model;
+		this.charset = charset;
 	}
 
 	/**
@@ -62,7 +72,7 @@ public class HandlerInfor<O> extends Handler<O> {
 		O bx = null;
 
 		InputStream is = url.openStream();
-		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		BufferedReader br = new BufferedReader(new InputStreamReader(is,this.charset));
 		String line = null;
 		while ((line = br.readLine()) != null) {
 
