@@ -3,6 +3,9 @@ package idio.handler;
 import java.net.URL;
 import java.util.ArrayList;
 
+import idio.model.Model;
+import idio.parser.Parser;
+
 /**
  * 
  * @author lexwoe
@@ -30,6 +33,9 @@ public class Handler<O> {
 	public static final String BOX_RMK = "Remark";
 
 	private ArrayList<O> boxes;
+	
+	private Parser parser;
+	private Model model;
 
 	/**
 	 * parse web page
@@ -53,4 +59,21 @@ public class Handler<O> {
 	public void setBoxes(ArrayList<O> boxes) {
 		this.boxes = boxes;
 	}
+
+	public Parser getParser() {
+		return parser;
+	}
+
+	public void setParser(Parser parser) {
+		this.parser = parser;
+	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+	
 }
