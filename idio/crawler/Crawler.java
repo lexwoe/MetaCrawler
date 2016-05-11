@@ -103,4 +103,12 @@ public class Crawler<O> {
 		this.boxes = boxes;
 	}
 
+	public Handler<O> getHandler() {
+		return hd;
+	}
+
+	public void setHandler(Handler<O> hd) {
+		this.hd = hd;
+	}
+
 }
