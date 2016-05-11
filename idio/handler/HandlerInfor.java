@@ -38,6 +38,10 @@ public class HandlerInfor<O> extends Handler<O> {
 	
 	// charset
 	private String charset = "UTF-8";
+	
+	public HandlerInfor(String boxname){
+		this.boxname = boxname;
+	}
 
 	public HandlerInfor(String boxname, Parser parser, Model model) {
 		this.boxname = boxname;
@@ -129,5 +133,38 @@ public class HandlerInfor<O> extends Handler<O> {
 	public void setBoxes(ArrayList<O> boxes) {
 		this.boxes = boxes;
 	}
+
+	public String getBoxname() {
+		return boxname;
+	}
+
+	public void setBoxname(String boxname) {
+		this.boxname = boxname;
+	}
+
+	public Parser getParser() {
+		return parser;
+	}
+
+	public void setParser(Parser parser) {
+		this.parser = parser;
+	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	public String getCharset() {
+		return charset;
+	}
+
+	public void setCharset(String charset) {
+		this.charset = charset;
+	}
+	
 
 }
