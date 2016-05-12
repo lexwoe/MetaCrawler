@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import idio.handler.Handler;
-import idio.handler.HandlerInfor;
+import idio.handler.HandlerExtend;
 
 /**
  * 
@@ -33,7 +33,7 @@ public class Crawler<O> {
 		this.seeds = seeds;
 	}
 
-	public Crawler(HandlerInfor<O> hd) {
+	public Crawler(HandlerExtend<O> hd) {
 		this.hd = hd;
 	}
 
