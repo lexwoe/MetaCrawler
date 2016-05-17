@@ -40,6 +40,10 @@ public class HandlerDefault extends Handler<BoxDefault> {
 	// charset
 	private String charset = "UTF-8";
 	
+	public HandlerDefault(){
+		
+	}
+	
 	public HandlerDefault(Parser parser, Model model) {
 		this.parser = parser;
 		this.model = model;
