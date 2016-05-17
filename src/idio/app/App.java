@@ -1,4 +1,4 @@
-package idio.app;
+package idio.partyApp;
 
 import java.util.ArrayList;
 
@@ -8,47 +8,51 @@ import idio.handler.Handler;
 import idio.model.Model;
 import idio.parser.Parser;
 
-public class App <O>{
+/**
+ * 
+ * @author lexwoe
+ *
+ * All of Apps are developed based on the builtin classes. 
+ *
+ * @version 16.05
+ */
 
-	public static final Pattern2Box[] APP_SIMPLE_P_PAT = new Pattern2Box[]{
-			new Pattern2Box(Handler.BOX_TITLE, Parser.HTML_H34_S, Parser.HTML_H34_E),
-			new Pattern2Box(Handler.BOX_TITLE, Parser.HTML_H34_L),
-			new Pattern2Box(Handler.BOX_LINK, Parser.HTML_A_L)
-	};
-	public static final Pattern2Box[] APP_ADVANCE_P_PAT = new Pattern2Box[]{
-			new Pattern2Box(Handler.BOX_TITLE, Parser.HTML_H34_S, Parser.HTML_H34_E),
-			new Pattern2Box(Handler.BOX_TITLE, Parser.HTML_H34_L),
-			new Pattern2Box(Handler.BOX_LINK, Parser.HTML_A_L),
-			new Pattern2Box(Handler.BOX_IMG, Parser.HTML_I_L),
-			new Pattern2Box(Handler.BOX_IMG, Parser.HTML_I_L),
-			new Pattern2Box(Handler.BOX_CNT, Parser.HTML_P_S, Parser.HTML_P_E),
-			new Pattern2Box(Handler.BOX_CNT, Parser.HTML_P_L)
-	};
-	public static final Pattern2Box[] APP_SIMPLE_M_PAT = new Pattern2Box[]{
-			new Pattern2Box(null, Parser.HTML_H34_S, Parser.HTML_D_E)
-	};
+public class App <O> {
 	
+	// seeds
 	private ArrayList<String> seeds;
+	
+	// PMHC
 	private Parser parser;
 	private Model model;
 	private Handler<O> handler;
 	private Crawler<O> crawler;
-	
+
+	// pattern for Parser and Model
 	private Pattern2Box[] pat4parser;
 	private Pattern2Box[] pat4model;
 	
+	// boxes
+	private ArrayList<O> boxes;
+	
 	public App(){
+ 
+	}
+	
+	// run
+	public void run() throws Exception{
 		
 	}
 	
-	public App(Parser p,Model m,Handler<O> h,Crawler<O> c){
-		this.parser = p;
-		this.model = m;
-		this.handler = h;
-		this.crawler = c;
-	}
-	
-	public ArrayList<O> app() throws Exception{
+	/**
+	 * flow
+	 * 
+	 * this flow, i think, may be good enough, no need overriding
+	 * 
+	 * @throws Exception
+	 */
+	public void flow() throws Exception{
+		this.init();
 		this.parser.loadPattern(this.pat4parser);
 		this.model.loadPattern(this.pat4model);
 		this.handler.setParser(this.parser);
@@ -56,7 +60,25 @@ public class App <O>{
 		this.crawler.setHandler(this.handler);
 		this.crawler.setSeeds(seeds);
 		this.crawler.run();
-		return this.crawler.getBoxes();
+		this.over();
+	}
+	
+	// initiate, act in start of flow
+	public void init() throws Exception{
+		
+	}
+	
+	// over, act in end of flow
+	public void over() throws Exception{
+			
+	}
+		
+	public ArrayList<O> getBoxes() {
+		return boxes;
+	}
+
+	public void setBoxes(ArrayList<O> boxes) {
+		this.boxes = boxes;
 	}
 
 	public ArrayList<String> getSeeds() {
