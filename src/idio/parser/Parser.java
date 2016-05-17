@@ -143,4 +143,22 @@ public class Parser {
 
 		return al;
 	}
+
+	public Stack<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(Stack<String> tags) {
+		this.tags = tags;
+	}
+
+	public Pattern2Box[] getPats() {
+		return pats;
+	}
+
+	public void setPats(Pattern2Box[] pats) {
+		this.pats = pats;
+	}
+	
+	
 }
