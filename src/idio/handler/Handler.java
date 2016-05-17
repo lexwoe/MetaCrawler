@@ -31,7 +31,6 @@ public class Handler<O> {
 	public static final String BOX_USER = "User";
 	public static final String BOX_TIME = "Time";
 	public static final String BOX_RMK = "Remark";
-	public static final String BOX_ID = "Id";
 
 	private ArrayList<O> boxes;
 	
